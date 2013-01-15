@@ -1,7 +1,7 @@
-Benjamin J Kero
-ben.kero@gmail.com
-Portland, OR
-(425) 591-2443
+Benjamin J Kero  
+ben.kero@gmail.com  
+Portland, OR  
+(425) 591-2443  
 
 Summary of Expertise
 ====================
@@ -91,7 +91,7 @@ Systems Administrator, OSU Open Source Lab, 09/2006 – 12/2010
     up-and-coming free software projects
 
 Speaking Engagements
-====================
+-------------------------------------------------------------
 
 -   **How to use Puppet like an Adult**
         FOSS.in, Bangalore, India, November 2012.
