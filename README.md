@@ -131,7 +131,7 @@ Computer Science, Oregon State University, 09/2006 – 12/2010
     handicapped viewers and screen-readers
 
 -   Participated in ongoing biotechnology projects by creating system
-    for public submission, customizable analysis, and anonymous
+    for public submission, customisable analysis, and anonymous
     retrieval of whole-genome datasets
 
 
