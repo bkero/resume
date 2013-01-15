@@ -1,4 +1,4 @@
-all: pdf md
+all: pdf
 
 pdf: clean
 	/usr/bin/pdflatex resume.tex
