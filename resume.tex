@@ -2,90 +2,153 @@
 \usepackage{fullpage}
 \usepackage{sectsty}
 \usepackage[compact]{titlesec}
-\usepackage{mdwlist}
-\usepackage{setspace}
-\onehalfspacing
 
 \sectionfont{\large}
 \subsectionfont{\normalsize}
-\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+%\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\pagenumbering{gobble}
+
+\newcommand{\listcompress}{
+    \itemsep -0.25em
+}
+
+\newcommand{\Employer}[4] {
+    % title, location, dates
+    \subsection*{{#1}, \begin{it}{#2}\end{it} \hfill {#3}}
+    \begin{itemize} \listcompress
+    {#4}
+    \end{itemize}
+}
+
+\newcommand{\speech}[1] {
+   \textbf{#1}
+}
+
+\newcommand{\conf}[3]{
+    {#1}, \begin{it}{#3}\end{it}\\
+}
+
+\newcommand{\conference}[3]{
+    \null\dotfill\conf{#1}{#2}{#3}
+}
+\newcommand{\confrepeat}[3]{
+    \null\hfill\conf{#1}{#2}{#3}
+}
 
 \begin{document}
 
-\begin{Large}
+%  |           | email
+%  |   name    | location
+%  |           | phone
+
+\begin{large}
 \begin{tabular*}{0.5\textwidth}{@{\extracolsep{\fill}} p{0.65\textwidth} p{0.5\textwidth} }
-Benjamin J Kero & ben.kero@gmail.com \\
-Portland, OR & (425) 591-2443 \\
+{\Huge \bf Benjamin J Kero} & ben.kero@gmail.com \\
+& (425) 591-2443 \\
+& Portland, OR\\
 \end{tabular*}
-\end{Large}
+\end{large}
+
+%\centerline{\Huge \bf Benjamin J Kero}
+%\centerline{Portland, OR $\bullet$ ben.kero@gmail.com $\bullet$ (425) 591-2443}
+
 
 \section*{Summary of Expertise}
-\begin{itemize} \itemsep -0.25em
+\begin{itemize} \listcompress
 \item Administration of RedHat Enterprise, Ubuntu, Debian, and Gentoo Linux distributions
 \item Collaboration with open source projects, communities, volunteers, and user groups
 \item Experience with Nagios, Munin, Ganglia, Graphite, PostgreSQL, Puppet, Bugzilla
 \item Working knowledge of DNS, NFS, SSH, SMTP, HTTP, IRC, and other common services
-\item Programming and scripting using Python, Make, BASH, PHP, C/C++, perl, awk, sed
+\item Programming and scripting using Python, Shell, Puppet, PHP, C/C++ 
 % \item Familiarity with ARM, MIPS, x86, x86\_64, PowerPC, PPC64, IBM Cell, and SPARC architectures
-% Removed items: Cacti, Subversion, cfEngine
+% Removed items: Cacti, Subversion, cfEngine, perl, grep, awk, sed
 \end{itemize}
 
 %\begin{center} \rule{300pt}{0.5pt} \end{center}
 
+%\section*{OpenStack Experience}
+%\begin{itemize} \listcompress
+%\item Familiarity with Gerrit code review tool and OpenStack review process
+%\item Code contributions in the TripleO, Puppet Modules, Diskimage-Builder, Docs projects
+%\item Deployed Icehouse cluster for purpose of automating Release Engineering infrastructure
+%\end{itemize}
+
 \section*{Experience}
+\Employer{Senior Software Engineer}{Red Hat}{07/2015 -- Present}{
+\item Designed and implemented CI system for downstream changes to OpenStack Puppet Modules. Interacted with upstream community and internal teams to ensure solution was consistent with upstream and fulfilled requirements from downstream
 
-\subsection*{Senior System Administrator, Mozilla, 06/2010 -- Present}
-\begin{itemize} \itemsep -0.25em
-%\item Responsible for availability, consistency, development, and scaling of source code repository infrastructure.  Coordinated with Mercurial project to design goals for new versions, debugged code, and tuned infrastructure for high-traffic serving
+\item Participated in round-table discussions to provide direction for internal CI efforts
+}
+
+\Employer{Senior System Administrator}{Mozilla}{06/2010 -- 07/2015}{
+\item Responsible for availability, consistency, development, and scaling of source code repository infrastructure.  Coordinated with Mercurial project to design goals for new versions, debugged code, and tuned infrastructure for high-traffic serving
+
 \item Designed, implemented, and deployed scalable monitoring and trending infrastructure using Ganglia to monitor thousands of machines across multiple datacenters worldwide
+
 \item Deployed clustering virtualization using Ganeti virtualization management software. Automated machine deployment with PXELinux, Kickstart, and Puppet
+
 \item Participated in 24-hour on-call rotation. Responsible for critical infrastructure availability including application debugging, service clusters, and priority escalation
-\item Scaled some of the world's biggest source code repositories with Apache, Varnish, and MySQL\. Emphasis on high availability, continuous integration, and clustering
-\end{itemize}
 
-\subsection*{Systems Operations, Google, 09/2008 -- 12/2008}
-\begin{itemize} \itemsep -0.25em
+\item Scaled some of the world's biggest source code repositories with Apache, Varnish, and MySQL. Emphasis on high availability, continuous integration, and clustering
+}
+
+\Employer{Systems Operations}{Google}{09/2008 -- 12/2008}{
 \item Contributed code, documentation, and tests to in-house log aggregation software. Emphasis on fast, massively scalable, and tolerant to hardware failure and network outages
-\item Added log aggregation software installation and automated configuration to internal deployment system for office-in-a-box installations
+\item Improved ``office-in-a-box'' tools by adding log aggregation and system automation
 \item Participated in code reviews for all team-submitted code
-\end{itemize}
+}
 
-\subsection*{System Administrator Intern, Intel, 06/2008 -- 09/2008}
-\begin{itemize} \itemsep -0.25em
+\Employer{System Administrator Intern}{Intel}{06/2008 -- 09/2008}{
 \item Wrote and deployed rack and inventory management system using PHP and MySQL
 \item Assisted in designing, implementing, and transitioning from proprietary in-house configuration management system to a standardized cfEngine system
 \item Triaged, escalated, and handled change orders, bugs, and states using BMC Remedy
-\end{itemize}
+}
 
-\subsection*{Systems Administrator, OSU Open Source Lab, 09/2006 -- 12/2010}
-\begin{itemize} \itemsep -0.25em
+\Employer{Systems Administrator}{OSU Open Source Lab}{09/2006 -- 12/2010}{
 \item Populated cfEngine management configurations for role-based instantiation of servers in addition to updating and repairing damaged or externally modified configurations. Assisted in cfEngine to Puppet migration
 \item Configured, troubleshooted, and repaired various open-source services, such as Apache, PHP, MySQL, Nagios, Cacti, Munin, RT, and Subversion
 \item Collaborated with open source communities for service availability and remote work
 \item Responsible for setup and availability of Ganeti clustered virtualization system for use managing high profile and up-and-coming free software projects
-\end{itemize}
+}
 
 %\begin{center} \rule{300pt}{0.5pt} \end{center}
 \section*{Publications}
-\begin{itemize} \itemsep -0.25em
-\item \textbf{Pro Puppet: Second Edition}, \begin{it}APress Publishing\end{it}. December 2013
+\begin{itemize} \listcompress
+\item \textbf{Pro Puppet: Second Edition}, \begin{it}APress Publishing\end{it}. 12/2013
 \item \textbf{A Few Words from Ben Kero}, \begin{it}Self-published\end{it}. Ongoing
 \end{itemize}
 
 \section*{Speaking Engagements}
-\begin{itemize} \itemsep -0.25em
-\item \textbf{When Everything Falls Apart: Stories of VCS Scaling}, \begin{it}Linux.Conf.Au\end{it}, Auckland, New Zealand. January 2015
-\item \textbf{Modern Home Automation}, \begin{it}Open Source Bridge\end{it}, Portland, Oregon. June 2014
-\item \textbf{Quick Prototyping + CI with LXC and Puppet}, \begin{it}Rootconf.in\end{it}, Bangalore, India. May 2014
-\item \textbf{Vee: A Puppet tool for Holistic Continuous Integration}, \begin{it}Puppet Users Group\end{it}, Portland, Oregon, August 2013
-\item \textbf{DIY Electric Vehicles}, \begin{it}Open Source Bridge\end{it}, Portland, Oregon. June 2013
-\item \textbf{How to use Puppet like an Adult}, \begin{it}FOSS.in\end{it}, Bangalore, India, November 2012. \begin{it}Linux.Conf.Au\end{it}, Canberra, Australia, January, 2013 \begin{it}OSCON\end{it}, Portland, Oregon, July 2013.
-\item \textbf{The Art of Open Source DJing}, \begin{it}Open Source Bridge\end{it}, Portland, Oregon. June 2012
-\item \textbf{Ganeti: Clustered Virtualization on Commodity Hardware}, \begin{it}Linux.Conf.Au\end{it}, Ballarat, Australia. January 2012
-\item \textbf{IT@Mozilla: Open Sourcing the Infrastructure}, \begin{it}Free and Open Source Software Developers' European Meeting\end{it}, Brussels, BE, February 2012
-\item \textbf{IT and Community} \begin{it}Mozcamp Asia\end{it}, Singapore. November 2011
-\item \textbf{The Dark Arts of SSH}, \begin{it}Beaver Bar Camp\end{it}, Corvallis, Oregon. June 2011
-\end{itemize}
+\setlength{\itemsep}{0.5pt}
+\setlength{\parskip}{1pt}
+\setlength{\parsep}{1pt}
+\speech{Intro to OpenStack}
+    \conference{Linuxfest Northwest}{Bellingham, WA}{04/2015}
+\speech{When Everything Falls Apart: VCS Scaling}
+	\conference{Linux.Conf.Au}{Auckland, New Zealand}{01/2015}
+\speech{Modern Home Automation}
+	\conference{Open Source Bridge}{Portland, Oregon}{06/2014}
+\speech{Quick Prototyping + CI with LXC and Puppet}
+	\conference{Rootconf.in}{Bangalore, India}{04/2014}
+\speech{Vee: A Puppet tool for Holistic CI}
+	\conference{Puppet Users Group}{Portland, Oregon}{08/2013}
+\speech{DIY Electric Vehicles}
+	\conference{Open Source Bridge}{Portland, Oregon}{06/2013}
+\speech{How to use Puppet like an Adult}
+	\conference{FOSS.in}{Bangalore, India}{11/2012}
+    \confrepeat{Linux.Conf.Au}{Canberra, Australia}{01/2013}
+    \confrepeat{OSCON}{Portland, Oregon}{07/2013}
+\speech{The Art of Open Source DJing}
+	\conference{Open Source Bridge}{Portland, Oregon}{06/2012}
+\speech{Ganeti: Clustered Virtualization on Commodity HW}
+	\conference{Linux.Conf.Au}{Ballarat, Australia}{01/2012}
+\speech{IT@Mozilla: Open Sourcing the Infrastructure}
+	\conference{FOSDEM}{Brussels, Belgium}{02/2012}
+\speech{IT and Community}
+    \conference{Mozcamp Asia}{Singapore}{11/2011}
+\speech{The Dark Arts of SSH}
+	\conference{Beaver Bar Camp}{Corvallis, Oregon}{05/2011}
 
 %\begin{center} \rule{300pt}{0.5pt} \end{center}
 
