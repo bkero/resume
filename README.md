@@ -1,5 +1,7 @@
 Ben Kero
+
 bkero@bke.ro
+
 Portland, OR
 
 Summary of Expertise
